@@ -164,8 +164,24 @@
   color: #ffffff;
   font-size: 1.1rem;
   line-height: 1.6;
-  margin: 0;
+  margin: 0 0 1rem 0;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.card-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.card-features span {
+  background: rgba(74, 144, 226, 0.3);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(74, 144, 226, 0.5);
 }
 
 /* Animation enhancements */

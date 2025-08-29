@@ -6,6 +6,8 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import BlurText from './BlurText';
+import CardNav from './CardNav';
+import logo from './logo.svg';
 import './ScrollBackground.css';
 
 // Register GSAP plugins
@@ -327,12 +329,13 @@ const ScrollBackground = () => {
     
     const cards = Array.from(cardStackRef.current.querySelectorAll('.card-item'));
     
-    // Set up initial card styles
+    // Set up initial card styles - more dramatic stack effect
     cards.forEach((card, i) => {
-      card.style.transform = `translateY(${i * 50}px) scale(${1 - i * 0.1})`;
-      card.style.opacity = 1 - i * 0.2;
-      card.style.filter = `blur(${i * 2}px)`;
+      card.style.transform = `translateY(${i * 80}px) scale(${1 - i * 0.15}) rotateX(${i * 5}deg)`;
+      card.style.opacity = 1 - i * 0.3;
+      card.style.filter = `blur(${i * 3}px)`;
       card.style.zIndex = cards.length - i;
+      card.style.transformOrigin = 'center bottom';
     });
     
     // Create GSAP animations for the stack effect
@@ -345,20 +348,22 @@ const ScrollBackground = () => {
       }
     });
     
-    // Animate each card
+    // Animate each card with more dramatic effect
     cards.forEach((card, i) => {
-      const targetScale = 1 - i * 0.05;
-      const targetY = i * 20;
-      const targetOpacity = 1 - i * 0.1;
-      const targetBlur = i * 1;
+      const targetScale = 1 - i * 0.08;
+      const targetY = i * 30;
+      const targetOpacity = 1 - i * 0.15;
+      const targetBlur = i * 1.5;
+      const targetRotateX = i * 2;
       
       tl.to(card, {
         scale: targetScale,
         y: targetY,
         opacity: targetOpacity,
         filter: `blur(${targetBlur}px)`,
+        rotateX: targetRotateX,
         duration: 1,
-        ease: "none"
+        ease: "power2.out"
       }, 0);
     });
     
@@ -375,11 +380,54 @@ const ScrollBackground = () => {
   const handleAnimationComplete = () => {
     console.log('Tagline animation completed!');
   };
+
+  const navItems = [
+    {
+      label: "About",
+      bgColor: "#0D0716",
+      textColor: "#fff",
+      links: [
+        { label: "Company", ariaLabel: "About Company" },
+        { label: "Careers", ariaLabel: "About Careers" }
+      ]
+    },
+    {
+      label: "Projects", 
+      bgColor: "#170D27",
+      textColor: "#fff",
+      links: [
+        { label: "Featured", ariaLabel: "Featured Projects" },
+        { label: "Case Studies", ariaLabel: "Project Case Studies" }
+      ]
+    },
+    {
+      label: "Contact",
+      bgColor: "#271E37", 
+      textColor: "#fff",
+      links: [
+        { label: "Email", ariaLabel: "Email us" },
+        { label: "Twitter", ariaLabel: "Twitter" },
+        { label: "LinkedIn", ariaLabel: "LinkedIn" }
+      ]
+    }
+  ];
   
   return (
     <div className="scroll-background-container">
       <canvas ref={canvasRef} className="experience" />
       <div className="vignette-radial" />
+      
+      {/* Navigation */}
+      <CardNav
+        logo={logo}
+        logoAlt="Company Logo"
+        items={navItems}
+        baseColor="rgba(255, 255, 255, 0.1)"
+        menuColor="#fff"
+        buttonBgColor="#4a90e2"
+        buttonTextColor="#fff"
+        ease="power3.out"
+      />
       
       {/* Content Container */}
       <div ref={contentRef} className="content-container">
@@ -408,24 +456,49 @@ const ScrollBackground = () => {
         <section className="card-stack-section">
           <div ref={cardStackRef} className="card-stack-container">
             <div className="card-item">
-              <h2>Card 1</h2>
-              <p>This is the first card with beautiful scroll animations and smooth transitions.</p>
+              <h2>Web Development</h2>
+              <p>Custom websites and web applications built with modern technologies. We create responsive, fast, and scalable solutions that drive your business forward.</p>
+              <div className="card-features">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>Three.js</span>
+              </div>
             </div>
             <div className="card-item">
-              <h2>Card 2</h2>
-              <p>This is the second card featuring amazing scaling and blur effects.</p>
+              <h2>UI/UX Design</h2>
+              <p>User-centered designs that create seamless and engaging digital experiences. We focus on usability, accessibility, and beautiful aesthetics.</p>
+              <div className="card-features">
+                <span>Figma</span>
+                <span>Prototyping</span>
+                <span>User Research</span>
+              </div>
             </div>
             <div className="card-item">
-              <h2>Card 3</h2>
-              <p>This is the third card with stunning depth and transparency effects.</p>
+              <h2>Brand Strategy</h2>
+              <p>Comprehensive branding solutions to establish your unique identity in the market. We help you stand out and connect with your audience.</p>
+              <div className="card-features">
+                <span>Logo Design</span>
+                <span>Brand Guidelines</span>
+                <span>Marketing</span>
+              </div>
             </div>
             <div className="card-item">
-              <h2>Card 4</h2>
-              <p>This is the fourth card showcasing the complete animation system.</p>
+              <h2>Digital Marketing</h2>
+              <p>Strategic digital marketing campaigns that increase your online presence and drive conversions. We use data-driven approaches for maximum impact.</p>
+              <div className="card-features">
+                <span>SEO</span>
+                <span>Social Media</span>
+                <span>Analytics</span>
+              </div>
             </div>
             <div className="card-item">
-              <h2>Card 5</h2>
-              <p>This is the final card demonstrating the full range of capabilities.</p>
+              <h2>Consulting</h2>
+              <p>Expert consulting services to help you make informed decisions about your digital strategy. We provide insights and guidance for your business growth.</p>
+              <div className="card-features">
+                <span>Strategy</span>
+                <span>Optimization</span>
+                <span>Growth</span>
+              </div>
             </div>
           </div>
         </section>
