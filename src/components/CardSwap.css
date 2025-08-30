@@ -1,0 +1,122 @@
+.card-swap-container {
+  position: relative;
+  margin: 0 auto;
+  transform: none;
+  transform-origin: center center;
+
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 16px;
+  border: 1px solid rgba(74, 144, 226, 0.4);
+  background: rgba(0, 0, 30, 0.85);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  overflow: hidden;
+
+  will-change: transform;
+}
+
+.card h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+}
+
+.card p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 8px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  width: 100%;
+}
+
+.card p:first-of-type {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+}
+
+.card p:not(:first-of-type) {
+  font-size: 0.95rem;
+  padding-left: 10px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.card:hover {
+  background: rgba(0, 0, 40, 0.9);
+  border-color: rgba(74, 144, 226, 0.5);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .card-swap-container {
+    transform: scale(0.85);
+  }
+  
+  .card {
+    padding: 25px;
+  }
+  
+  .card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .card p {
+    font-size: 0.9rem;
+  }
+  
+  .card p:first-of-type {
+    font-size: 1rem;
+  }
+  
+  .card p:not(:first-of-type) {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-swap-container {
+    transform: scale(0.75);
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  .card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .card p {
+    font-size: 0.85rem;
+  }
+  
+  .card p:first-of-type {
+    font-size: 0.95rem;
+  }
+  
+  .card p:not(:first-of-type) {
+    font-size: 0.8rem;
+  }
+}

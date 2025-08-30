@@ -278,6 +278,177 @@
   background: #3a7bc8;
 }
 
+/* Company Info Section */
+.company-info {
+  padding: 100px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.company-badge {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.company-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: center;
+}
+
+.intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Process Section */
+.process-section {
+  padding: 100px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.process-section h2 {
+  text-align: center;
+  margin-bottom: 60px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.process-card {
+  background: rgba(0, 0, 30, 0.8);
+  border-radius: 15px;
+  padding: 40px 30px;
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  box-shadow: none;
+}
+
+.process-card:hover {
+  background: rgba(0, 0, 40, 0.9);
+}
+
+.process-number {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  font-size: 4rem;
+  font-weight: 900;
+  color: rgba(74, 144, 226, 0.2);
+  line-height: 1;
+}
+
+.process-card h3 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+
+.process-card p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+}
+
+/* Digital Strategy Section */
+.digital-strategy {
+  padding: 100px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: transparent;
+}
+
+.digital-strategy h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.strategy-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.strategy-highlight {
+  background: rgba(0, 0, 30, 0.8);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 40px;
+  border: 1px solid rgba(74, 144, 226, 0.3);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.strategy-highlight h3 {
+  color: #4a90e2;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.strategy-highlight p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.strategy-cta {
+  text-align: center;
+  background: rgba(74, 144, 226, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.strategy-cta p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
 /* About Section */
 .about {
   padding: 100px 0;
@@ -439,5 +610,41 @@ p {
   .services-grid {
     grid-template-columns: 1fr;
     max-width: 400px;
+  }
+  
+  .company-info h2,
+  .process-section h2,
+  .digital-strategy h2 {
+    font-size: 2rem;
+  }
+  
+  .intro-content p,
+  .strategy-highlight p,
+  .strategy-cta p {
+    font-size: 1rem;
+  }
+  
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .process-card {
+    padding: 30px 20px;
+  }
+  
+  .process-number {
+    font-size: 3rem;
+    top: -5px;
+    right: 15px;
+  }
+  
+  .strategy-highlight,
+  .strategy-cta {
+    padding: 25px 20px;
+  }
+  
+  .strategy-highlight h3 {
+    font-size: 1.6rem;
   }
 }
