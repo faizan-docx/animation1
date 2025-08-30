@@ -3,6 +3,9 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Canvas Background */
@@ -31,13 +34,22 @@
   position: relative;
   z-index: 10;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Global Styles */
 .container {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 /* Hero Section */
@@ -55,6 +67,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .hero-title {
@@ -70,9 +83,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 10px;
-  margin-bottom: 40px;
+  margin: 0 auto 40px auto;
   max-width: 800px;
+  width: 100%;
 }
 
 .hero-tags span {
@@ -197,6 +212,8 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .services h2 {
@@ -211,6 +228,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;
 }
 
 .service-card {
@@ -263,6 +284,8 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .about-content {
@@ -302,6 +325,8 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .cta-section h2 {
@@ -335,10 +360,48 @@
   text-align: center;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer p {
   color: #ffffff;
+}
+
+/* Additional centering fixes */
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-stack-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-stack-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Ensure all text elements are centered */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  width: 100%;
+}
+
+p {
+  text-align: center;
+  width: 100%;
 }
 
 /* Responsive design */
@@ -367,5 +430,14 @@
   .about-content h2,
   .cta-section h2 {
     font-size: 2rem;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
   }
 }

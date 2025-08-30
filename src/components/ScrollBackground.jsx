@@ -36,7 +36,7 @@ const MathUtils = {
 const ScrollBackground = () => {
   const canvasRef = useRef(null);
   const contentRef = useRef(null);
-  const cardStackRef = useRef(null);
+
   
   useEffect(() => {
     // Initialize variables
@@ -323,59 +323,7 @@ const ScrollBackground = () => {
     };
   }, []);
   
-  // Setup card stack animations
-  useEffect(() => {
-    if (!cardStackRef.current) return;
-    
-    const cards = Array.from(cardStackRef.current.querySelectorAll('.card-item'));
-    
-    // Set up initial card styles - more dramatic stack effect
-    cards.forEach((card, i) => {
-      card.style.transform = `translateY(${i * 80}px) scale(${1 - i * 0.15}) rotateX(${i * 5}deg)`;
-      card.style.opacity = 1 - i * 0.3;
-      card.style.filter = `blur(${i * 3}px)`;
-      card.style.zIndex = cards.length - i;
-      card.style.transformOrigin = 'center bottom';
-    });
-    
-    // Create GSAP animations for the stack effect
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: cardStackRef.current,
-        start: "top center",
-        end: "bottom center",
-        scrub: 1,
-      }
-    });
-    
-    // Animate each card with more dramatic effect
-    cards.forEach((card, i) => {
-      const targetScale = 1 - i * 0.08;
-      const targetY = i * 30;
-      const targetOpacity = 1 - i * 0.15;
-      const targetBlur = i * 1.5;
-      const targetRotateX = i * 2;
-      
-      tl.to(card, {
-        scale: targetScale,
-        y: targetY,
-        opacity: targetOpacity,
-        filter: `blur(${targetBlur}px)`,
-        rotateX: targetRotateX,
-        duration: 1,
-        ease: "power2.out"
-      }, 0);
-    });
-    
-    return () => {
-      // Clean up ScrollTrigger instances
-      ScrollTrigger.getAll().forEach(trigger => {
-        if (trigger.vars.trigger === cardStackRef.current) {
-          trigger.kill();
-        }
-      });
-    };
-  }, []);
+
   
   const handleAnimationComplete = () => {
     console.log('Tagline animation completed!');
@@ -452,56 +400,7 @@ const ScrollBackground = () => {
           </div>
         </section>
 
-        {/* Card Stack Section */}
-        <section className="card-stack-section">
-          <div ref={cardStackRef} className="card-stack-container">
-            <div className="card-item">
-              <h2>Web Development</h2>
-              <p>Custom websites and web applications built with modern technologies. We create responsive, fast, and scalable solutions that drive your business forward.</p>
-              <div className="card-features">
-                <span>React</span>
-                <span>Node.js</span>
-                <span>Three.js</span>
-              </div>
-            </div>
-            <div className="card-item">
-              <h2>UI/UX Design</h2>
-              <p>User-centered designs that create seamless and engaging digital experiences. We focus on usability, accessibility, and beautiful aesthetics.</p>
-              <div className="card-features">
-                <span>Figma</span>
-                <span>Prototyping</span>
-                <span>User Research</span>
-              </div>
-            </div>
-            <div className="card-item">
-              <h2>Brand Strategy</h2>
-              <p>Comprehensive branding solutions to establish your unique identity in the market. We help you stand out and connect with your audience.</p>
-              <div className="card-features">
-                <span>Logo Design</span>
-                <span>Brand Guidelines</span>
-                <span>Marketing</span>
-              </div>
-            </div>
-            <div className="card-item">
-              <h2>Digital Marketing</h2>
-              <p>Strategic digital marketing campaigns that increase your online presence and drive conversions. We use data-driven approaches for maximum impact.</p>
-              <div className="card-features">
-                <span>SEO</span>
-                <span>Social Media</span>
-                <span>Analytics</span>
-              </div>
-            </div>
-            <div className="card-item">
-              <h2>Consulting</h2>
-              <p>Expert consulting services to help you make informed decisions about your digital strategy. We provide insights and guidance for your business growth.</p>
-              <div className="card-features">
-                <span>Strategy</span>
-                <span>Optimization</span>
-                <span>Growth</span>
-              </div>
-            </div>
-          </div>
-        </section>
+
 
         {/* Services Section */}
         <section id="services" className="services">
